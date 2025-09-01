@@ -33,6 +33,18 @@ describe('BookManager', () => {
 
     //Lengkapi Unit Test dibawah untuk bmcari buku berdasarkan penulis
     test('Test mencari buku berdasarkan author', () => {
+        const book1 = new Book('No Longer Human', 'Osamu Dazai', 1948);
+        const book2 = new Book('Run Melos', 'Osamu Dazai', 1937);
+        const book3 = new Book('The Brother Karamazov', 'Fyodor Dostoevsky', 1889);
+
+        bookManager.addBook(book1);
+        bookManager.addBook(book2);
+        bookManager.addBook(book3);
+
+        const found = bookManager.findBooksByAuthor('Osamu Dazai');
+        expect(found.length).toBe(2);
+        expect(found[0].title).toBe('No Longer Human');
+        expect(found[1].title).toBe('Run Melos');
 
     });
 
