@@ -50,6 +50,15 @@ describe('BookManager', () => {
 
     //Lengkapi Unit Test dibawah untuk seluruh buku yang ada di dalam list
     test('Test mendapatkan semua buku', () => {
+        const book1 = new Book ('Bumi', 'Tere Liye', 2014);
+        const book2 = new Book ('Misteri Soliter', 'Jostein Gaarder', 1990);
 
+        bookManager.addBook(book1);
+        bookManager.addBook(book2);
+
+        const allBooks = bookManager.getAllBooks();
+        expect(allBooks.length).toBe(2);
+        expect(allBooks).toContain(book1);
+        expect(allBooks).toContain(book2);
     });
 });
